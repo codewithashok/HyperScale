@@ -46,6 +46,19 @@
                   "maximumError": "8kB"
                 }
               ],
+              "assets": [
+                {
+                  "glob": "**/*",
+                  "input": "public",
+                  "ignore": ["mockServiceWorker.js"]
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/mocks/enable-mocks.ts",
+                  "with": "src/mocks/enable-mocks.prod.ts"
+                }
+              ],
               "outputHashing": "all"
             },
             "development": {
@@ -69,7 +82,10 @@
           "defaultConfiguration": "development"
         },
         "test": {
-          "builder": "@angular/build:unit-test"
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "runnerConfig": true
+          }
         }
       }
     }
