@@ -1,0 +1,44 @@
+:host {
+  display: block;
+}
+
+.sidebar {
+  height: 100%;
+  padding: var(--hs-space-3);
+  background: var(--hs-surface);
+  border-right: 1px solid var(--hs-border);
+
+  @media (max-width: 768px) {
+    border-right: none;
+    border-bottom: 1px solid var(--hs-border);
+    padding: var(--hs-space-2) var(--hs-space-3);
+  }
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hs-space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+}
+
+.nav-item {
+  display: block;
+  padding: var(--hs-space-2) var(--hs-space-3);
+  border-radius: var(--hs-radius);
+  color: var(--hs-text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+
+  &.active {
+    background: var(--hs-accent-soft);
+    color: var(--hs-accent);
+  }
+}

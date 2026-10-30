@@ -48,3 +48,23 @@ HyperScale/
 - **No NgModules**, and no "standalone: true" (it's the default).
 - **Short names:** app.ts / App, not app.component.ts / AppComponent.
 - **Vitest** instead of Karma/Jasmine.
+
+### The app shell (what we built)
+- The CLI's welcome page is gone. The app is now a **shell**: navbar on top, sidebar on the left, pages on the right.
+- **Navbar** and **Sidebar** are their own components in app/layout/. The root App just arranges them with CSS grid.
+- Pages will render inside the **router-outlet** in main. For now it shows a placeholder.
+- On phones the sidebar becomes a horizontal strip under the navbar.
+- The sidebar links are just text for now. They become real links in Stage 1.7.
+
+### Theme variables
+- All colours, spacing, fonts and sizes live once in styles.scss as CSS variables (the --hs-… names).
+- Components use the variables instead of hard-coded colours, so changing the theme means changing one file.
+- Dark mode is automatic: it follows the OS setting and just swaps the variable values.
+
+### HTTP setup
+- provideHttpClient() is in app.config. That's where interceptors go later (Stage 2.7).
+- Heads up: **withFetch() is deprecated in v22** because fetch is the default now. Older tutorials still show it.
+
+### Gotcha we hit
+- Mocks start *before* Angular boots, so the app waits for MSW to say it's ready.
+- If a page ever stays blank in dev, check the console for the "[MSW] Mocking enabled" message first.

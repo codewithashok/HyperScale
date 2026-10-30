@@ -1,1 +1,101 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global theme tokens. Components use these via var(--…) instead of hard-coded values. */
+
+:root {
+  color-scheme: light dark;
+
+  /* Surfaces & text */
+  --hs-bg: #f4f6fa;
+  --hs-surface: #ffffff;
+  --hs-surface-raised: #ffffff;
+  --hs-border: #dde2ea;
+  --hs-text: #1b2230;
+  --hs-text-muted: #5d6779;
+
+  /* Brand */
+  --hs-accent: #3d5afe;
+  --hs-accent-contrast: #ffffff;
+  --hs-accent-soft: #e8ecff;
+
+  /* Node status */
+  --hs-status-healthy: #1e9e5a;
+  --hs-status-warning: #d98e04;
+  --hs-status-down: #d93a3a;
+
+  /* Typography */
+  --hs-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --hs-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --hs-text-sm: 0.8125rem;
+  --hs-text-md: 0.9375rem;
+  --hs-text-lg: 1.125rem;
+
+  /* Spacing, shape, depth */
+  --hs-space-1: 4px;
+  --hs-space-2: 8px;
+  --hs-space-3: 12px;
+  --hs-space-4: 16px;
+  --hs-space-6: 24px;
+  --hs-radius: 8px;
+  --hs-shadow: 0 1px 2px rgb(16 24 40 / 6%), 0 1px 3px rgb(16 24 40 / 10%);
+
+  /* Layout */
+  --hs-navbar-height: 56px;
+  --hs-sidebar-width: 220px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hs-bg: #0f131a;
+    --hs-surface: #161b24;
+    --hs-surface-raised: #1d2430;
+    --hs-border: #2a3240;
+    --hs-text: #e6e9ef;
+    --hs-text-muted: #9aa3b2;
+
+    --hs-accent: #7b8cff;
+    --hs-accent-contrast: #0f131a;
+    --hs-accent-soft: #232a45;
+
+    --hs-status-healthy: #3ccb7f;
+    --hs-status-warning: #f0b429;
+    --hs-status-down: #ff6b6b;
+
+    --hs-shadow: 0 1px 2px rgb(0 0 0 / 40%);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--hs-bg);
+  color: var(--hs-text);
+  font-family: var(--hs-font);
+  font-size: var(--hs-text-md);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.25;
+}
+
+a {
+  color: var(--hs-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--hs-accent);
+  outline-offset: 2px;
+}

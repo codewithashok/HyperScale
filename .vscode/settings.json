@@ -1,0 +1,7 @@
+{
+  // Hide test and style files from the Explorer and search. Set to false to see them again.
+  "files.exclude": {
+    "**/*.spec.ts": true,
+    "**/*.scss": true
+  }
+}

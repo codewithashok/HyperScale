@@ -1,0 +1,50 @@
+// The app shell: navbar across the top, sidebar on the left, pages on the right.
+:host {
+  display: grid;
+  grid-template-areas:
+    'navbar navbar'
+    'sidebar main';
+  grid-template-columns: var(--hs-sidebar-width) 1fr;
+  grid-template-rows: var(--hs-navbar-height) 1fr;
+  height: 100vh;
+
+  // Small screens: sidebar turns into a horizontal strip under the navbar.
+  @media (max-width: 768px) {
+    grid-template-areas:
+      'navbar'
+      'sidebar'
+      'main';
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--hs-navbar-height) auto 1fr;
+  }
+}
+
+.shell-navbar {
+  grid-area: navbar;
+}
+
+.shell-sidebar {
+  grid-area: sidebar;
+}
+
+.shell-main {
+  grid-area: main;
+  overflow: auto;
+  padding: var(--hs-space-6);
+
+  @media (max-width: 768px) {
+    padding: var(--hs-space-4);
+  }
+}
+
+.placeholder {
+  padding: var(--hs-space-6);
+  background: var(--hs-surface);
+  border: 1px dashed var(--hs-border);
+  border-radius: var(--hs-radius);
+
+  p {
+    margin: var(--hs-space-2) 0 0;
+    color: var(--hs-text-muted);
+  }
+}
